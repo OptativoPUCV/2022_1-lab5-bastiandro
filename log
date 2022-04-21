@@ -1,0 +1,11 @@
+Thu Apr 21 15:33:25 UTC 2022: 
+ treemap.c | 11 +++++++++++
+ 1 file changed, 11 insertions(+)
+In file included from test.c:4:0:
+treemap.c: In function ‘searchTreeMap’:
+treemap.c:78:16: error: ‘TreeNode {aka struct TreeNode}’ has no member named ‘rigth’; did you mean ‘right’?
+       aux=aux->rigth;
+                ^~~~~
+                right
+Compilation failed
+0cbc8bd
