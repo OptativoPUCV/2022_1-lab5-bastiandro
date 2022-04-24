@@ -46,7 +46,31 @@ TreeMap * createTreeMap(int (*lower_than) (void* key1, void* key2)) {
 
 
 void insertTreeMap(TreeMap * tree, void* key, void * value) {
- 
+  TreeNode *aux = createTreeNode(key, value);
+  TreeNode *current = tree->root;
+  while(current != NULL){
+    if(is_equal(tree, current->key, key) == 1) break;
+
+    if(current->left == NULL && current->right == NULL){
+      if(tree->lower_than(key,current->key) == 1){
+        current->left = aux;
+        current->left->parent = current;
+      }
+      if(tree->lower_than(current->key,key) == 1){
+        current->right = aux;
+        current->right->parent = current;
+      }
+    }
+
+    if(tree->lower_than(key, current->key) == 1){
+      current = current->left;
+      tree->current=current;
+    }
+    if(tree->lower_than(current->key, key) == 1){
+      current=current->right;
+      tree->current=current;
+    }
+  }
 }
 
 TreeNode * minimum(TreeNode * x){
@@ -89,46 +113,45 @@ Pair * searchTreeMap(TreeMap * tree, void* key) {
 
 
 Pair * upperBound(TreeMap * tree, void* key) {
-  TreeNode *auxi = tree->root;
-   if(auxi == NULL){
-     return NULL;
-     }
-  while(auxi != NULL){
-      if(tree->lower_than(key, auxi->key) == 1){
-        auxi = auxi->left;
+    TreeNode *aux = tree->root;
+  //TreeNode *rango;
+
+  while(aux != NULL){
+      //if(rango == NULL) rango = aux; 
+      if(tree->lower_than(key, aux->key) == 1){
+        aux = aux->left;
       }
-      if(tree->lower_than(auxi->key, key) == 1){
-        auxi=auxi->right;
+      if(tree->lower_than(aux->key, key) == 1){
+        aux=aux->right;
       }else break;
   }
-    return auxi->value;
-  }
+  if(aux == NULL) return NULL;
+  return aux->value;
+}
 
 Pair * firstTreeMap(TreeMap * tree) {
-  TreeNode*aux1=minimum(tree->root);
-    return aux1->value;
-  }
- 
+   TreeNode *aux = minimum(tree->root);
+    return aux->value;
+}
 
 Pair * nextTreeMap(TreeMap * tree) {
-  if(tree==NULL){
-    return NULL;
-  }
-  TreeNode*rama;
-  if(tree->current->right != NULL){
-    rama=tree->current->right;
-    tree->current = minimum(rama);
+     if(tree == NULL) return NULL;
+    TreeNode *respaldo;
+    TreeNode *aux;
+    
+    if(tree->current->right != NULL){
+      aux = tree->current->right;
+      tree->current = minimum(aux);
+      return tree->current->value;
+    } 
+
+    respaldo = tree->current->parent;
+    while (respaldo != NULL && tree->current == respaldo->right) {
+      tree->current = respaldo;
+      respaldo = respaldo->parent;
+    }
+    tree->current = respaldo;
+    if(tree->current == NULL) return NULL;
+
     return tree->current->value;
-  }
-  TreeNode* aux;
-  aux=tree->current->parent;
-  while(aux != NULL && tree->current == aux->right){
-    tree->current=aux;
-    aux=aux->parent;
-  }
-  tree->current=aux;
-  if(tree->current == NULL){
-    return NULL;
-  }
-  return tree->current->value;
-  }
+}
