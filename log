@@ -815,3 +815,48 @@ treemap.c:133:3: error: control reaches end of non-void function [-Werror=return
 cc1: all warnings being treated as errors
 Compilation failed
 b77c80c
+Sun Apr 24 23:29:02 UTC 2022: 
+In file included from test.c:4:0:
+treemap.c: In function ‘upperBound’:
+treemap.c:120:32: error: ‘aux2’ undeclared (first use in this function); did you mean ‘auxi’?
+       if(tree->lower_than(key, aux2->key) == 1){
+                                ^~~~
+                                auxi
+treemap.c:120:32: note: each undeclared identifier is reported only once for each function it appears in
+treemap.c: In function ‘firstTreeMap’:
+treemap.c:131:17: error: implicit declaration of function ‘mimimum’; did you mean ‘minimum’? [-Werror=implicit-function-declaration]
+   TreeNode*aux1=mimimum(tree->root);
+                 ^~~~~~~
+                 minimum
+treemap.c:131:17: error: initialization makes pointer from integer without a cast [-Werror=int-conversion]
+treemap.c:132:12: error: ‘aux’ undeclared (first use in this function); did you mean ‘aux1’?
+     return aux->value;
+            ^~~
+            aux1
+treemap.c:131:12: error: unused variable ‘aux1’ [-Werror=unused-variable]
+   TreeNode*aux1=mimimum(tree->root);
+            ^~~~
+treemap.c: In function ‘nextTreeMap’:
+treemap.c:146:16: error: initialization from incompatible pointer type [-Werror=incompatible-pointer-types]
+   TreeMap* aux=tree->current->parent;
+                ^~~~
+treemap.c:147:44: error: ‘TreeMap {aka struct TreeMap}’ has no member named ‘right’
+   while(aux != NULL && tree->current == aux->right){
+                                            ^~
+treemap.c:148:18: error: assignment from incompatible pointer type [-Werror=incompatible-pointer-types]
+     tree->current=aux;
+                  ^
+treemap.c:149:14: error: ‘TreeMap {aka struct TreeMap}’ has no member named ‘parent’; did you mean ‘current’?
+     aux=aux->parent;
+              ^~~~~~
+              current
+treemap.c:151:16: error: assignment from incompatible pointer type [-Werror=incompatible-pointer-types]
+   tree->current=aux;
+                ^
+treemap.c: In function ‘firstTreeMap’:
+treemap.c:133:3: error: control reaches end of non-void function [-Werror=return-type]
+   }
+   ^
+cc1: all warnings being treated as errors
+Compilation failed
+3045442
