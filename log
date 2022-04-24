@@ -971,3 +971,50 @@ test.c:309:36: error: ‘TreeNode {aka struct TreeNode}’ has no member named �
                                     ^~
 Compilation failed
 667ae13
+Sun Apr 24 23:42:05 UTC 2022: 
+ treemap.c | 5 ++---
+ 1 file changed, 2 insertions(+), 3 deletions(-)
+In file included from test.c:4:0:
+treemap.c: In function ‘searchTreeMap’:
+treemap.c:100:32: error: ‘TreeNode {aka struct TreeNode}’ has no member named ‘pair’
+     if(tree->lower_than(key,aux->pair->key)==1){
+                                ^~
+treemap.c:102:36: error: ‘TreeNode {aka struct TreeNode}’ has no member named ‘pair’
+       }else if(tree->lower_than(aux->pair->key,key)==1){
+                                    ^~
+treemap.c:106:19: error: ‘TreeNode {aka struct TreeNode}’ has no member named ‘pair’
+         return aux->pair;
+                   ^~
+test.c: In function ‘insert_test2’:
+test.c:196:34: error: ‘TreeNode {aka struct TreeNode}’ has no member named ‘pair’
+            tree->root->left->left->pair->value!=p) {
+                                  ^~
+test.c:203:41: error: ‘TreeNode {aka struct TreeNode}’ has no member named ‘pair’
+             (int*)tree->root->left->left->pair->key!=&p->id) {
+                                         ^~
+test.c: In function ‘minimum_test’:
+test.c:232:20: error: ‘TreeNode {aka struct TreeNode}’ has no member named ‘pair’
+     if ( *((int*) n->pair->key) != 1273){
+                    ^~
+test.c:233:91: error: ‘TreeNode {aka struct TreeNode}’ has no member named ‘pair’
+         sprintf(msg,"minimum retorna nodo con clave %d (deberia retornar 1273)",*((int*) n->pair->key));
+                                                                                           ^~
+test.c:251:20: error: ‘TreeNode {aka struct TreeNode}’ has no member named ‘pair’
+     if ( *((int*) n->pair->key) != 100){
+                    ^~
+test.c:252:90: error: ‘TreeNode {aka struct TreeNode}’ has no member named ‘pair’
+         sprintf(msg,"minimum retorna nodo con clave %d (deberia retornar 100)",*((int*) n->pair->key));
+                                                                                          ^~
+test.c: In function ‘erase_test2’:
+test.c:283:36: error: ‘TreeNode {aka struct TreeNode}’ has no member named ‘pair’
+     if( * ((int*) tree->root->right->pair->key) != 6980) {
+                                    ^~
+test.c: In function ‘erase_test3’:
+test.c:304:29: error: ‘TreeNode {aka struct TreeNode}’ has no member named ‘pair’
+     if( * ((int*) tree->root->pair->key) != 6980){
+                             ^~
+test.c:309:36: error: ‘TreeNode {aka struct TreeNode}’ has no member named ‘pair’
+     if( * ((int*) tree->root->right->pair->key) != 8213){
+                                    ^~
+Compilation failed
+4dea54d
