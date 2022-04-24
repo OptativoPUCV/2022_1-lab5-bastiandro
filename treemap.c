@@ -117,7 +117,7 @@ Pair * upperBound(TreeMap * tree, void* key) {
      return NULL;
      }
   while(auxi != NULL){
-      if(tree->lower_than(key, aux2->key) == 1){
+      if(tree->lower_than(key, auxi->key) == 1){
         auxi = auxi->left;
       }
       if(tree->lower_than(auxi->key, key) == 1){
@@ -128,8 +128,8 @@ Pair * upperBound(TreeMap * tree, void* key) {
   }
 
 Pair * firstTreeMap(TreeMap * tree) {
-  TreeNode*aux1=mimimum(tree->root);
-    return aux->value;
+  TreeNode*aux1=minimum(tree->root);
+    return aux1->value;
   }
  
 
