@@ -143,7 +143,7 @@ Pair * nextTreeMap(TreeMap * tree) {
     tree->current = minimum(rama);
     return tree->current->value;
   }
-  TreeMap* aux:
+  TreeNode* aux;
   aux=tree->current->parent;
   while(aux != NULL && tree->current == aux->right){
     tree->current=aux;
