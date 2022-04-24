@@ -7,6 +7,7 @@ typedef struct TreeNode TreeNode;
 
 
 struct TreeNode {
+    Pair* pair
     void* key
     void* value
     TreeNode * left;
@@ -60,7 +61,6 @@ void insertTreeMap(TreeMap * tree, void* key, void * value) {
         current->right->parent = current;
       }
     }
-
     if(tree->lower_than(key, current->key) == 1){
       current = current->left;
       tree->current=current;
