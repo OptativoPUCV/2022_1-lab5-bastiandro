@@ -101,3 +101,306 @@ treemap.c:155:3: error: control reaches end of non-void function [-Werror=return
 cc1: all warnings being treated as errors
 Compilation failed
 a2894fc
+Sun Apr 24 23:19:29 UTC 2022: 
+ treemap.c | 3 ++-
+ 1 file changed, 2 insertions(+), 1 deletion(-)
+In file included from test.c:4:0:
+treemap.c:11:5: error: expected ‘:’, ‘,’, ‘;’, ‘}’ or ‘__attribute__’ before ‘void’
+     void* value
+     ^~~~
+treemap.c: In function ‘createTreeNode’:
+treemap.c:33:8: error: ‘TreeNode {aka struct TreeNode}’ has no member named ‘pair’
+     new->pair = (Pair *)malloc(sizeof(Pair));
+        ^~
+treemap.c:34:8: error: ‘TreeNode {aka struct TreeNode}’ has no member named ‘pair’
+     new->pair->key = key;
+        ^~
+treemap.c:35:8: error: ‘TreeNode {aka struct TreeNode}’ has no member named ‘pair’
+     new->pair->value = value;
+        ^~
+treemap.c:36:8: error: ‘TreeNode {aka struct TreeNode}’ has no member named ‘parent’
+     new->parent = new->left = new->right = NULL;
+        ^~
+treemap.c:36:22: error: ‘TreeNode {aka struct TreeNode}’ has no member named ‘left’
+     new->parent = new->left = new->right = NULL;
+                      ^~
+treemap.c:36:34: error: ‘TreeNode {aka struct TreeNode}’ has no member named ‘right’
+     new->parent = new->left = new->right = NULL;
+                                  ^~
+treemap.c: In function ‘insertTreeMap’:
+treemap.c:51:30: error: ‘TreeNode {aka struct TreeNode}’ has no member named ‘key’
+     if(is_equal(tree, current->key, key) == 1) break;
+                              ^~
+treemap.c:53:15: error: ‘TreeNode {aka struct TreeNode}’ has no member named ‘left’
+     if(current->left == NULL && current->right == NULL){
+               ^~
+treemap.c:53:40: error: ‘TreeNode {aka struct TreeNode}’ has no member named ‘right’
+     if(current->left == NULL && current->right == NULL){
+                                        ^~
+treemap.c:54:38: error: ‘TreeNode {aka struct TreeNode}’ has no member named ‘key’
+       if(tree->lower_than(key,current->key) == 1){
+                                      ^~
+treemap.c:55:16: error: ‘TreeNode {aka struct TreeNode}’ has no member named ‘left’
+         current->left = aux;
+                ^~
+treemap.c:55:25: error: ‘aux’ undeclared (first use in this function)
+         current->left = aux;
+                         ^~~
+treemap.c:55:25: note: each undeclared identifier is reported only once for each function it appears in
+treemap.c:56:16: error: ‘TreeNode {aka struct TreeNode}’ has no member named ‘left’
+         current->left->parent = current;
+                ^~
+treemap.c:58:34: error: ‘TreeNode {aka struct TreeNode}’ has no member named ‘key’
+       if(tree->lower_than(current->key,key) == 1){
+                                  ^~
+treemap.c:59:16: error: ‘TreeNode {aka struct TreeNode}’ has no member named ‘right’
+         current->right = aux;
+                ^~
+treemap.c:60:16: error: ‘TreeNode {aka struct TreeNode}’ has no member named ‘right’
+         current->right->parent = current;
+                ^~
+treemap.c:64:37: error: ‘TreeNode {aka struct TreeNode}’ has no member named ‘key’
+     if(tree->lower_than(key, current->key) == 1){
+                                     ^~
+treemap.c:65:24: error: ‘TreeNode {aka struct TreeNode}’ has no member named ‘left’
+       current = current->left;
+                        ^~
+treemap.c:68:32: error: ‘TreeNode {aka struct TreeNode}’ has no member named ‘key’
+     if(tree->lower_than(current->key, key) == 1){
+                                ^~
+treemap.c:69:22: error: ‘TreeNode {aka struct TreeNode}’ has no member named ‘right’
+       current=current->right;
+                      ^~
+treemap.c:49:13: error: unused variable ‘nodo’ [-Werror=unused-variable]
+   TreeNode *nodo = createTreeNode(key, value);
+             ^~~~
+treemap.c: In function ‘minimum’:
+treemap.c:76:10: error: ‘TreeNode {aka struct TreeNode}’ has no member named ‘left’
+   while(x->left != NULL){
+          ^~
+treemap.c:77:8: error: ‘TreeNode {aka struct TreeNode}’ has no member named ‘left’
+     x=x->left;
+        ^~
+treemap.c: In function ‘searchTreeMap’:
+treemap.c:101:32: error: ‘TreeNode {aka struct TreeNode}’ has no member named ‘pair’
+     if(tree->lower_than(key,aux->pair->key)==1){
+                                ^~
+treemap.c:102:16: error: ‘TreeNode {aka struct TreeNode}’ has no member named ‘left’
+       aux = aux->left;
+                ^~
+treemap.c:103:36: error: ‘TreeNode {aka struct TreeNode}’ has no member named ‘pair’
+       }else if(tree->lower_than(aux->pair->key,key)==1){
+                                    ^~
+treemap.c:104:14: error: ‘TreeNode {aka struct TreeNode}’ has no member named ‘right’
+       aux=aux->right;
+              ^~
+treemap.c:107:19: error: ‘TreeNode {aka struct TreeNode}’ has no member named ‘pair’
+         return aux->pair;
+                   ^~
+treemap.c: In function ‘upperBound’:
+treemap.c:119:9: error: ‘auxi’ undeclared (first use in this function); did you mean ‘aux2’?
+   while(auxi != NULL){
+         ^~~~
+         aux2
+treemap.c:120:36: error: ‘TreeNode {aka struct TreeNode}’ has no member named ‘key’
+       if(tree->lower_than(key, aux2->key) == 1){
+                                    ^~
+treemap.c: In function ‘firstTreeMap’:
+treemap.c:131:17: error: implicit declaration of function ‘mimimum’; did you mean ‘minimum’? [-Werror=implicit-function-declaration]
+   TreeNode*aux1=mimimum(tree->root);
+                 ^~~~~~~
+                 minimum
+treemap.c:131:17: error: initialization makes pointer from integer without a cast [-Werror=int-conversion]
+treemap.c:132:12: error: ‘aux’ undeclared (first use in this function); did you mean ‘aux1’?
+     return aux->value;
+            ^~~
+            aux1
+treemap.c:131:12: error: unused variable ‘aux1’ [-Werror=unused-variable]
+   TreeNode*aux1=mimimum(tree->root);
+            ^~~~
+treemap.c: In function ‘nextTreeMap’:
+treemap.c:140:3: error: expected ‘;’ before ‘}’ token
+   }
+   ^
+treemap.c:141:19: error: ‘TreeNode {aka struct TreeNode}’ has no member named ‘right’
+   if(tree->current->right != NULL){
+                   ^~
+treemap.c:142:23: error: ‘TreeNode {aka struct TreeNode}’ has no member named ‘right’
+     rama=tree->current->right;
+                       ^~
+treemap.c:144:25: error: ‘TreeNode {aka struct TreeNode}’ has no member named ‘pair’
+     return tree->current->pair;
+                         ^~
+treemap.c:146:29: error: ‘TreeNode {aka struct TreeNode}’ has no member named ‘parent’
+   TreeMap* aux=tree->current->parent;
+                             ^~
+treemap.c:147:44: error: ‘TreeMap {aka struct TreeMap}’ has no member named ‘right’
+   while(aux != NULL && tree->current == aux->right){
+                                            ^~
+treemap.c:148:18: error: assignment from incompatible pointer type [-Werror=incompatible-pointer-types]
+     tree->current=aux;
+                  ^
+treemap.c:149:14: error: ‘TreeMap {aka struct TreeMap}’ has no member named ‘parent’; did you mean ‘current’?
+     aux=aux->parent;
+              ^~~~~~
+              current
+treemap.c:151:16: error: assignment from incompatible pointer type [-Werror=incompatible-pointer-types]
+   tree->current=aux;
+                ^
+treemap.c:155:23: error: ‘TreeNode {aka struct TreeNode}’ has no member named ‘value’
+   return tree->current->value;
+                       ^~
+test.c: In function ‘initializeTree’:
+test.c:65:15: error: ‘TreeNode {aka struct TreeNode}’ has no member named ‘right’
+     tree->root->right=createTreeNode(&p->id, p);
+               ^~
+test.c:66:15: error: ‘TreeNode {aka struct TreeNode}’ has no member named ‘right’
+     tree->root->right->parent=tree->root;
+               ^~
+test.c:68:15: error: ‘TreeNode {aka struct TreeNode}’ has no member named ‘right’
+     tree->root->right->left=createTreeNode(&p->id, p);
+               ^~
+test.c:69:15: error: ‘TreeNode {aka struct TreeNode}’ has no member named ‘right’
+     tree->root->right->left->parent=tree->root->right;
+               ^~
+test.c:69:47: error: ‘TreeNode {aka struct TreeNode}’ has no member named ‘right’
+     tree->root->right->left->parent=tree->root->right;
+                                               ^~
+test.c:71:15: error: ‘TreeNode {aka struct TreeNode}’ has no member named ‘left’
+     tree->root->left=createTreeNode(&p->id, p);
+               ^~
+test.c:72:15: error: ‘TreeNode {aka struct TreeNode}’ has no member named ‘left’
+     tree->root->left->parent=tree->root;
+               ^~
+test.c: In function ‘search_test2’:
+test.c:131:35: error: ‘TreeNode {aka struct TreeNode}’ has no member named ‘right’
+     if(tree->current != tree->root->right){
+                                   ^~
+test.c: In function ‘search_test3’:
+test.c:151:35: error: ‘TreeNode {aka struct TreeNode}’ has no member named ‘right’
+     if(tree->current != tree->root->right->left){
+                                   ^~
+test.c: In function ‘insert_test1’:
+test.c:177:18: error: ‘TreeNode {aka struct TreeNode}’ has no member named ‘left’
+     if(tree->root->left->left != NULL ||
+                  ^~
+test.c:178:22: error: ‘TreeNode {aka struct TreeNode}’ has no member named ‘left’
+            tree->root->left->right != NULL){
+                      ^~
+test.c: In function ‘insert_test2’:
+test.c:195:18: error: ‘TreeNode {aka struct TreeNode}’ has no member named ‘left’
+     if(tree->root->left->left == NULL ||
+                  ^~
+test.c:196:22: error: ‘TreeNode {aka struct TreeNode}’ has no member named ‘left’
+            tree->root->left->left->pair->value!=p) {
+                      ^~
+test.c:202:18: error: ‘TreeNode {aka struct TreeNode}’ has no member named ‘left’
+     if(tree->root->left->left != NULL &&
+                  ^~
+test.c:203:29: error: ‘TreeNode {aka struct TreeNode}’ has no member named ‘left’
+             (int*)tree->root->left->left->pair->key!=&p->id) {
+                             ^~
+test.c:208:18: error: ‘TreeNode {aka struct TreeNode}’ has no member named ‘left’
+     if(tree->root->left->left->parent !=
+                  ^~
+test.c:209:23: error: ‘TreeNode {aka struct TreeNode}’ has no member named ‘left’
+             tree->root->left){
+                       ^~
+test.c:214:35: error: ‘TreeNode {aka struct TreeNode}’ has no member named ‘left’
+     if(tree->current != tree->root->left->left){
+                                   ^~
+test.c: In function ‘minimum_test’:
+test.c:232:20: error: ‘TreeNode {aka struct TreeNode}’ has no member named ‘pair’
+     if ( *((int*) n->pair->key) != 1273){
+                    ^~
+test.c:233:91: error: ‘TreeNode {aka struct TreeNode}’ has no member named ‘pair’
+         sprintf(msg,"minimum retorna nodo con clave %d (deberia retornar 1273)",*((int*) n->pair->key));
+                                                                                           ^~
+test.c:239:27: error: ‘TreeNode {aka struct TreeNode}’ has no member named ‘left’
+     n = minimum(tree->root->left);
+                           ^~
+test.c:247:15: error: ‘TreeNode {aka struct TreeNode}’ has no member named ‘left’
+     tree->root->left->left=createTreeNode(&p->id, p);
+               ^~
+test.c:248:15: error: ‘TreeNode {aka struct TreeNode}’ has no member named ‘left’
+     tree->root->left->left->parent=tree->root->left;
+               ^~
+test.c:248:46: error: ‘TreeNode {aka struct TreeNode}’ has no member named ‘left’
+     tree->root->left->left->parent=tree->root->left;
+                                              ^~
+test.c:251:20: error: ‘TreeNode {aka struct TreeNode}’ has no member named ‘pair’
+     if ( *((int*) n->pair->key) != 100){
+                    ^~
+test.c:252:90: error: ‘TreeNode {aka struct TreeNode}’ has no member named ‘pair’
+         sprintf(msg,"minimum retorna nodo con clave %d (deberia retornar 100)",*((int*) n->pair->key));
+                                                                                          ^~
+test.c: In function ‘erase_test1’:
+test.c:268:18: error: ‘TreeNode {aka struct TreeNode}’ has no member named ‘left’
+     if(tree->root->left != NULL) {
+                  ^~
+test.c: In function ‘erase_test2’:
+test.c:283:29: error: ‘TreeNode {aka struct TreeNode}’ has no member named ‘right’
+     if( * ((int*) tree->root->right->pair->key) != 6980) {
+                             ^~
+test.c:289:20: error: ‘TreeNode {aka struct TreeNode}’ has no member named ‘right’
+     if(  tree->root->right->parent != tree->root){
+                    ^~
+test.c: In function ‘erase_test3’:
+test.c:304:29: error: ‘TreeNode {aka struct TreeNode}’ has no member named ‘pair’
+     if( * ((int*) tree->root->pair->key) != 6980){
+                             ^~
+test.c:309:29: error: ‘TreeNode {aka struct TreeNode}’ has no member named ‘right’
+     if( * ((int*) tree->root->right->pair->key) != 8213){
+                             ^~
+test.c: In function ‘first_test2’:
+test.c:337:15: error: ‘TreeNode {aka struct TreeNode}’ has no member named ‘left’
+     tree->root->left->left=createTreeNode(&p->id, p);
+               ^~
+test.c:338:15: error: ‘TreeNode {aka struct TreeNode}’ has no member named ‘left’
+     tree->root->left->left->parent=tree->root->left;
+               ^~
+test.c:338:46: error: ‘TreeNode {aka struct TreeNode}’ has no member named ‘left’
+     tree->root->left->left->parent=tree->root->left;
+                                              ^~
+test.c: In function ‘next_test1’:
+test.c:355:15: error: ‘TreeNode {aka struct TreeNode}’ has no member named ‘left’
+     tree->root->left->right=createTreeNode(&p->id, p);
+               ^~
+test.c:356:15: error: ‘TreeNode {aka struct TreeNode}’ has no member named ‘left’
+     tree->root->left->right->parent=tree->root->left;
+               ^~
+test.c:356:47: error: ‘TreeNode {aka struct TreeNode}’ has no member named ‘left’
+     tree->root->left->right->parent=tree->root->left;
+                                               ^~
+test.c:359:31: error: ‘TreeNode {aka struct TreeNode}’ has no member named ‘left’
+     tree->current = tree->root->left;
+                               ^~
+test.c: In function ‘next_test3’:
+test.c:409:15: error: ‘TreeNode {aka struct TreeNode}’ has no member named ‘left’
+     tree->root->left->right=createTreeNode(&p->id, p);
+               ^~
+test.c:410:15: error: ‘TreeNode {aka struct TreeNode}’ has no member named ‘left’
+     tree->root->left->right->parent=tree->root->left;
+               ^~
+test.c:410:47: error: ‘TreeNode {aka struct TreeNode}’ has no member named ‘left’
+     tree->root->left->right->parent=tree->root->left;
+                                               ^~
+test.c:412:29: error: ‘TreeNode {aka struct TreeNode}’ has no member named ‘left’
+     tree->current=tree->root->left->right;
+                             ^~
+In file included from test.c:4:0:
+treemap.c: In function ‘upperBound’:
+treemap.c:128:3: error: control reaches end of non-void function [-Werror=return-type]
+   }
+   ^
+treemap.c: In function ‘firstTreeMap’:
+treemap.c:133:3: error: control reaches end of non-void function [-Werror=return-type]
+   }
+   ^
+treemap.c: In function ‘nextTreeMap’:
+treemap.c:156:3: error: control reaches end of non-void function [-Werror=return-type]
+   }
+   ^
+cc1: all warnings being treated as errors
+Compilation failed
+8a53317
