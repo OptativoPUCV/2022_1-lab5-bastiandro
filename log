@@ -884,3 +884,18 @@ treemap.c:151:16: error: assignment from incompatible pointer type [-Werror=inco
 cc1: all warnings being treated as errors
 Compilation failed
 c045543
+Sun Apr 24 23:31:34 UTC 2022: 
+ treemap.c | 3 ++-
+ 1 file changed, 2 insertions(+), 1 deletion(-)
+In file included from test.c:4:0:
+treemap.c: In function ‘nextTreeMap’:
+treemap.c:146:15: error: expected ‘=’, ‘,’, ‘;’, ‘asm’ or ‘__attribute__’ before ‘:’ token
+   TreeMap* aux:
+               ^
+treemap.c:146:15: error: expected expression before ‘:’ token
+treemap.c:148:9: error: ‘aux’ undeclared (first use in this function)
+   while(aux != NULL && tree->current == aux->right){
+         ^~~
+treemap.c:148:9: note: each undeclared identifier is reported only once for each function it appears in
+Compilation failed
+9726409
