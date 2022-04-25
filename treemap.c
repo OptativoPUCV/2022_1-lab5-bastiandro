@@ -138,9 +138,11 @@ Pair * nextTreeMap(TreeMap * tree) {
       tree->current = minimum(tree->current->right);
       return tree->current->pair;
     } 
+  TreeNode *respaldo;
+    respaldo=tree->current->parent;
     while (tree->current->parent != NULL && tree->current == tree->current->parent->right) {
       tree->current = tree->current->parent;
-      tree->current->parent = tree->current->parent->parent;
+      tree->current->parent = respaldo->parent;
     }
     tree->current = tree->current->parent;
     if(tree->current == NULL) return NULL;
