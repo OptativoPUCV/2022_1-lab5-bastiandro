@@ -124,7 +124,7 @@ Pair * upperBound(TreeMap * tree, void* key) {
         auxi=auxi->right;
       }else break;
   }
-    return auxi->pair;
+    return auxi->pair->value;
   }
 
 Pair * firstTreeMap(TreeMap * tree) {
