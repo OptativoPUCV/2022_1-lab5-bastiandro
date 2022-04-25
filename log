@@ -1285,3 +1285,20 @@ Mon Apr 25 00:19:14 UTC 2022:
  tests:  15|4
 total_score: 25/70
 26090ca
+Mon Apr 25 00:23:29 UTC 2022: 
+ treemap.c | 33 ++++++++++++++++-----------------
+ 1 file changed, 16 insertions(+), 17 deletions(-)
+In file included from test.c:4:0:
+treemap.c: In function ‘nextTreeMap’:
+treemap.c:143:27: error: ‘TreeNode {aka struct TreeNode}’ has no member named ‘value’
+       return tree->current->value;
+                           ^~
+treemap.c:154:25: error: ‘TreeNode {aka struct TreeNode}’ has no member named ‘value’
+     return tree->current->value;
+                         ^~
+treemap.c:155:1: error: control reaches end of non-void function [-Werror=return-type]
+ }
+ ^
+cc1: all warnings being treated as errors
+Compilation failed
+326f5ba

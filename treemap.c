@@ -133,24 +133,23 @@ Pair * firstTreeMap(TreeMap * tree) {
   }
 
 Pair * nextTreeMap(TreeMap * tree) {
-  if(tree==NULL){
-    return NULL;
-  }
-  TreeNode*rama;
-  if(tree->current->right != NULL){
-    rama=tree->current->right;
-    tree->current = minimum(rama);
-    return tree->current->pair->value;
-  }
-  TreeNode* aux;
-  aux=tree->current->parent;
-  while(aux != NULL && tree->current == aux->right){
-    tree->current=aux;
-    aux=aux->parent;
-  }
-  tree->current=aux;
-  if(tree->current == NULL){
-    return NULL;
-  }
-  return tree->current->pair->value;
-  }
+  if(tree == NULL) return NULL;
+    TreeNode *respaldo;
+    TreeNode *aux;
+    
+    if(tree->current->right != NULL){
+      aux = tree->current->right;
+      tree->current = minimum(aux);
+      return tree->current->value;
+    } 
+
+    respaldo = tree->current->parent;
+    while (respaldo != NULL && tree->current == respaldo->right) {
+      tree->current = respaldo;
+      respaldo = respaldo->parent;
+    }
+    tree->current = respaldo;
+    if(tree->current == NULL) return NULL;
+
+    return tree->current->value;
+}
