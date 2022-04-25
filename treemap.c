@@ -140,7 +140,7 @@ Pair * nextTreeMap(TreeMap * tree) {
     if(tree->current->right != NULL){
       aux = tree->current->right;
       tree->current = minimum(aux);
-      return tree->current->value;
+      return tree->current->piar->value;
     } 
 
     respaldo = tree->current->parent;
@@ -151,5 +151,5 @@ Pair * nextTreeMap(TreeMap * tree) {
     tree->current = respaldo;
     if(tree->current == NULL) return NULL;
 
-    return tree->current->value;
+    return tree->current->pair->value;
 }
