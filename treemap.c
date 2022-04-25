@@ -123,11 +123,10 @@ Pair * upperBound(TreeMap * tree, void* key) {
       if(tree->lower_than(auxi->pair->key, key) == 1){
         auxi=auxi->right;
       }else break;
-     return auxi->pair;
   }if(auxi == NULL){
      return NULL;
      }
-    return auxi;
+    return auxi->pair;
 
   }
 
